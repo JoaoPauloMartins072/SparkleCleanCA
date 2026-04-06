@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Learn about SparkleClean: our mission, values, and why customers trust our home cleaning service."
+    />
+    <title>About Us | SparkleClean</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="logo" href="index.html">SparkleClean</a>
+        <nav aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html" class="nav-active">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <h1 class="section-title">About SparkleClean</h1>
+        <p class="section-lead">
+          We started SparkleClean because we saw neighbors and friends juggling jobs,
+          families, and side projects — with no energy left to scrub sinks or mop
+          floors. Our goal is simple: reliable cleaning you can book without stress.
+        </p>
+
+        <!-- Two-column block: narrative + supporting image -->
+        <div class="about-grid">
+          <div>
+            <h2 class="section-title" style="font-size: 1.35rem">Our mission</h2>
+            <p>
+              To give busy people their time back by delivering consistent, respectful
+              cleaning that fits real schedules and real budgets.
+            </p>
+            <h2 class="section-title" style="font-size: 1.35rem; margin-top: 1.5rem">
+              Values we stand by
+            </h2>
+            <ul class="values-list">
+              <li><strong>Reliability</strong> — we show up when we say we will.</li>
+              <li><strong>Respect</strong> — your home and belongings are treated carefully.</li>
+              <li><strong>Transparency</strong> — clear scope and pricing before we start.</li>
+              <li><strong>Safety</strong> — vetted team members and sensible products.</li>
+            </ul>
+            <h2 class="section-title" style="font-size: 1.35rem; margin-top: 1.5rem">
+              Why trust us?
+            </h2>
+            <p>
+              We use checklists, quality spot checks, and direct feedback loops so
+              service improves over time. If something is missed, we work with you to
+              make it right — because trust is built one visit at a time.
+            </p>
+          </div>
+          <div>
+            <img
+              src="images/about-team.svg"
+              alt="Illustration representing a trusted cleaning team"
+              width="600"
+              height="400"
+            />
+          </div>
+        </div>
+
+        <p style="margin-top: 2rem">
+          <a class="btn btn-primary" href="contact.html">Talk to us</a>
+          <a
+            class="btn btn-primary"
+            href="index.html"
+            style="background: var(--color-primary); color: #fff; margin-left: 0.5rem"
+            >Back to Home</a
+          >
+        </p>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div>
+          <p class="footer-brand">SparkleClean</p>
+          <p class="footer-copy">
+            &copy; <span id="year"></span> SparkleClean. Local home cleaning services.
+          </p>
+        </div>
+        <div>
+          <p><strong>Quick links</strong></p>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

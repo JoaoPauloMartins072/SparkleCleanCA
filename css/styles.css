@@ -1,0 +1,479 @@
+/*
+ * SparkleClean — Global stylesheet
+ * ---------------------------------
+ * This file centralizes all visual rules so every page (Home, Services, About, Contact)
+ * shares the same typography, colors, spacing, and component styles. Keeping one CSS
+ * file avoids duplication and makes the site easier to maintain and grade.
+ */
+
+/* ---------------------------------------------------------------------------
+   CSS custom properties (variables)
+   Why: Change the brand palette in one place; components inherit consistently.
+   --------------------------------------------------------------------------- */
+:root {
+  --color-primary: #0d9488;
+  --color-primary-dark: #0f766e;
+  --color-accent: #14b8a6;
+  --color-text: #134e4a;
+  --color-text-muted: #5c7a75;
+  --color-bg: #f8fffe;
+  --color-white: #ffffff;
+  --color-border: #ccfbf1;
+  --font-sans: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-heading: Georgia, "Times New Roman", serif;
+  --shadow-sm: 0 2px 8px rgba(13, 148, 136, 0.12);
+  --shadow-md: 0 8px 24px rgba(19, 78, 74, 0.15);
+  --radius: 10px;
+  --max-width: 1100px;
+}
+
+/* ---------------------------------------------------------------------------
+   Reset and base
+   Why: Normalize margins/box model so layout is predictable across browsers.
+   --------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main grows so footer stays at bottom on short pages */
+main {
+  flex: 1;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  line-height: 1.25;
+  margin-top: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   Site header and navigation
+   Why: Sticky bar keeps navigation visible; current page uses .nav-active class.
+   --------------------------------------------------------------------------- */
+.site-header {
+  background: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Brand links to home — clear return path per assignment */
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  text-decoration: none;
+}
+
+.logo:hover {
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
+/* Horizontal nav list */
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+.nav-list a {
+  color: var(--color-text);
+  font-weight: 500;
+  padding: 0.35rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-list a:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+  border-bottom-color: var(--color-accent);
+}
+
+/* Highlights the page user is on */
+.nav-list a.nav-active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+/* ---------------------------------------------------------------------------
+   Layout utilities
+   Why: Reusable containers keep content width consistent.
+   --------------------------------------------------------------------------- */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-primary-dark);
+}
+
+.section-lead {
+  color: var(--color-text-muted);
+  margin-bottom: 2rem;
+  max-width: 65ch;
+}
+
+/* ---------------------------------------------------------------------------
+   Hero (home page)
+   Why: Full-width banner + CTA draws attention to primary action.
+   --------------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  background: linear-gradient(135deg, #0d9488 0%, #115e59 100%);
+  color: var(--color-white);
+  padding: 3rem 1.25rem 4rem;
+  overflow: hidden;
+}
+
+.hero .container {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .hero .container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.hero h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  color: inherit;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  opacity: 0.95;
+  margin-bottom: 1.5rem;
+}
+
+.hero-image-wrap {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+/* Primary call-to-action button */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  font-size: 1rem;
+  font-family: inherit;
+  text-align: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-primary {
+  background: var(--color-white);
+  color: var(--color-primary-dark);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-white);
+  border: 2px solid rgba(255, 255, 255, 0.85);
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.15);
+  text-decoration: none;
+}
+
+/* ---------------------------------------------------------------------------
+   Feature cards (home) and service cards
+   Why: Card grid presents bite-sized info with clear separation.
+   --------------------------------------------------------------------------- */
+.card-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 600px) {
+  .card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+}
+
+.card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.card h3 {
+  color: var(--color-primary-dark);
+  font-size: 1.15rem;
+}
+
+.card .price {
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-top: 0.75rem;
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 0.75rem;
+}
+
+/* ---------------------------------------------------------------------------
+   About page: two-column layout
+   Why: Text + image side by side on wide screens improves scanability.
+   --------------------------------------------------------------------------- */
+.about-grid {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.values-list {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.values-list li {
+  margin-bottom: 0.5rem;
+}
+
+/* ---------------------------------------------------------------------------
+   Contact form
+   Why: Clear labels, focus states, and error regions improve accessibility and UX.
+   --------------------------------------------------------------------------- */
+.contact-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr 1.1fr;
+  }
+}
+
+.contact-aside {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  color: var(--color-text);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid #99f6e4;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.2);
+}
+
+.form-group textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* Error text shown by JavaScript when validation fails */
+.field-error {
+  display: none;
+  color: #b91c1c;
+  font-size: 0.875rem;
+  margin-top: 0.35rem;
+}
+
+.field-error.visible {
+  display: block;
+}
+
+.form-group.has-error input,
+.form-group.has-error textarea {
+  border-color: #f87171;
+}
+
+/* Success banner after valid submit (no server) */
+.form-success {
+  display: none;
+  background: #d1fae5;
+  border: 1px solid #6ee7b7;
+  color: #065f46;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+}
+
+.form-success.visible {
+  display: block;
+}
+
+/* ---------------------------------------------------------------------------
+   Embedded video wrapper (responsive 16:9)
+   Why: iframe needs aspect-ratio container to avoid layout overflow.
+   --------------------------------------------------------------------------- */
+.video-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  margin-top: 1rem;
+}
+
+.video-wrap iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   Site footer
+   Why: Consistent legal/sitemap area on every page.
+   --------------------------------------------------------------------------- */
+.site-footer {
+  background: var(--color-primary-dark);
+  color: #e0f2f1;
+  margin-top: auto;
+  padding: 2rem 1.25rem;
+}
+
+.site-footer a {
+  color: #99f6e4;
+}
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 600px) {
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+.footer-brand {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.footer-copy {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.35rem;
+}

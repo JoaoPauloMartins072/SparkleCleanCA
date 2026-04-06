@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="500" viewBox="0 0 1200 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d9488"/>
+      <stop offset="100%" style="stop-color:#115e59"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="500" fill="url(#bg)"/>
+  <circle cx="900" cy="120" r="80" fill="#ffffff" opacity="0.08"/>
+  <circle cx="200" cy="380" r="120" fill="#ffffff" opacity="0.06"/>
+  <text x="600" y="260" font-family="Georgia, serif" font-size="42" fill="#ffffff" text-anchor="middle" opacity="0.9">SparkleClean</text>
+  <text x="600" y="310" font-family="system-ui, sans-serif" font-size="18" fill="#ccfbf1" text-anchor="middle">Fresh homes, happy lives</text>
+</svg>
