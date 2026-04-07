@@ -1,3 +1,3 @@
 # SparkleCleanCA
 
-Site estático (HTML, CSS, JavaScript) para o serviço de limpeza doméstica **SparkleClean**. Abra `index.html` no navegador para ver o site.
+Static website (HTML, CSS, JavaScript) for the SparkleClean domestic cleaning service. Open `index.html` in the browser to view the site.
